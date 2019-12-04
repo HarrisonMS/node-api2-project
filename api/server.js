@@ -6,11 +6,8 @@ const server = express();
 server.use(express.json())
 
 server.get('/', (req, res) => {
-    res.send(`
-      <h2>Lambda Hubs API</h>
-      <p>Welcome to the Lambda Hubs API</p>
-    `);
-  });
+  res.send({api: " server is up and running"})
+})
 
 server.use("/api/posts", postRouter)
 
