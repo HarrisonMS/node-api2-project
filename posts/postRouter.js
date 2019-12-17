@@ -80,16 +80,6 @@ router.post("/:id/comments", (req, res) => {
         })
     }
 })
-// router.post("/", (req, res) => {
-//     Posts.insert(req.body)
-//     .then(post => {
-//         res.status(201).json(post)
-
-//     })
-// })
-
-
-///creatign a new post using the .insert() method post needs a title and contents or throws an 400 err
 router.post("/", (req, res) => {
     const posts = req.body;
     if(!posts.title || !posts.contents) {
@@ -120,23 +110,6 @@ router.delete("/:id", (req, res) => {
     })
     
 })
-
-// router.put("/:id", (req, res) => {
-//     const post = req.body;
-//     if(!post.title || !post.contents) {
-//         res.status(400).json(
-//             {errorMessage: "please provide title and contents for the post"})
-//     }else {
-//         Posts
-//         .update(post)
-//         console.log(post)
-//         .then(({id}) => {
-//             Posts.findById(id)
-//             .then((post) => {res.status(201).json(post)})
-            
-//         })
-//     }
-// })
 router.put('/:id', (req, res) => {
     if(!req.body.title || !req.body.contents) {
         res.status(400).json({errorMessage: "please provide title and contents for the post"})
